@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Nuevo atleta</title>
+</head>
+<body>
+Insertar un nuevo atleta:
+<form action="#" th:action="@{/insertar}" th:object="${atleta}" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" id="name"></td>
+        </tr>
+
+        <tr>
+            <td><label for="primerApellido">Primer apellido</label></td>
+            <td><input type="text" th:field="*{primerApellido}" id="primerApellido"></td>
+        </tr>
+
+        <tr>
+            <td><label for="segundoApellido">Segundo apellido</label></td>
+            <td><input type="text" th:field="*{segundoApellido}" id="segundoApellido"></td>
+        </tr>
+
+        <tr>
+           <td><label for="fechaDeNacimiento">Fecha de Nacimiento</label></td>
+            <td><input type="date" th:field="*{fechaDeNacimiento}" id="fechaDeNacimiento"></td>
+        </tr>
+
+        <tr>
+            <td><label for="estatura">Estatura (m)</label></td>
+            <td><input type="text" th:field="*{estatura}" id="estatura"></td>
+        </tr>
+
+        <tr>
+            <td><label for="peso">Peso (kg)</label></td>
+            <td><input type="text" th:field="*{peso}" id="peso"></td>
+        </tr>
+
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="text" th:field="*{email}" id="email"></td>
+        </tr>
+
+        <tr>
+            <td><label for="deporte">Deporte</label></td>
+            <td><input type="text" th:field="*{deporte}" id="deporte"></td>
+        </tr>
+
+        <tr>
+            <td><label for="telefono">Telefono</label></td>
+            <td><input type="text" th:field="*{telefono}" id="telefono"></td>
+        </tr>
+
+        <tr>
+            <td><label for="rama">Rama</label></td>
+            <td>
+                <select th:field="*{rama}" id="rama">
+                    <option th:value="'M'" th:text="Masculina"></option>
+                    <option th:value="'F'" th:text="Femenina"></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Add Atleta">
+</form>
+
+<a href="/">Ir a casa</a>
+</body>
+</html>

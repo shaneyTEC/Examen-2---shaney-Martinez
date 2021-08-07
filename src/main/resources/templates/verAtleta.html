@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>Detalle del atleta</h1>
+    <ul>
+        <div th:object="${atleta}">
+            <li>
+                <h4>
+                    <span th:text="${atleta.nombre}">Nombre</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.primerApellido}">Nombre</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.segundoApellido}">Nombre</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.fechaDeNacimiento}">fecha De Nacimiento</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.email}">email</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.deporte}">deporte</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.telefono}">telefono</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.rama}">rama</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${atleta.imcs}">IMCS</span>
+                </h4>
+            </li>
+
+            <a th:href="@{/verIMC/{id}(id= ${atleta.id})}">Ver IMC del atleta</a>
+        </div>
+    </ul>
+</div>
+<a href="/">Ir a casa</a>
+</body>
+</html>

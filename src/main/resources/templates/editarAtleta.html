@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Atletas</title>
+</head>
+<body>
+<h1>Editar un atleta:</h1>
+<form action="#" th:action="@{/editar/{id}(id= ${id})}" th:object="${atleta}" method="post">
+    <h4>
+        Editar informacion de atleta:
+    </h4>
+
+    <table>
+        <tr>
+            <td><label for="name">Nombre</label></td>
+            <td><label readonly type="text" th:field="*{nombre}" id="name"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="primerApellido">Primer apellido</label></td>
+            <td><label readonly type="text" th:field="*{primerApellido}" id="primerApellido"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="segundoApellido">Segundo apellido</label></td>
+            <td><label readonly type="text" th:field="*{segundoApellido}" id="segundoApellido"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="fechaDeNacimiento">Fecha de Nacimiento</label></td>
+            <td><label readonly type="date" th:field="*{fechaDeNacimiento}" id="fechaDeNacimiento"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="deporte">Deporte</label></td>
+            <td><label readonly type="text" th:field="*{deporte}" id="deporte"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="estatura">Estatura (m)</label></td>
+            <td><label readonly type="text" th:field="*{estatura}" id="estatura"></label></td>
+        </tr>
+
+        <tr>
+            <td><label for="peso">Masa (kg)</label></td>
+            <td><input type="text" th:field="*{peso}" id="peso"></td>
+        </tr>
+
+        <tr>
+            <td><label for="rama">Rama</label></td>
+            <td>
+                <label readonly type="text" th:field="*{rama}" id="rama"></label>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="provincia">Provincia</label></td>
+            <td><input type="text" th:field="*{provincia}" id="provincia"></td>
+        </tr>
+
+        <tr>
+            <td><label for="canton">Canton</label></td>
+            <td><input type="text" th:field="*{canton}" id="canton"></td>
+        </tr>
+
+        <tr>
+            <td><label for="distrito">Distrito</label></td>
+            <td><input type="text" th:field="*{distrito}" id="distrito"></td>
+        </tr>
+
+        <tr>
+            <td><label for="telefono">Telefono</label></td>
+            <td><input type="text" th:field="*{telefono}" id="telefono"></td>
+        </tr>
+
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="text" th:field="*{email}" id="email"></td>
+        </tr>
+    </table>
+    <br>
+    <a th:href="@{/atleta/{id}(id= *{id})}">Volver a atleta</a>
+    <br>
+</form>
+
+<a href="/">Ir a casa</a>
+</body>
+</html>

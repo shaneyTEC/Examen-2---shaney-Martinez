@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>IMC</title>
+</head>
+<body>
+<div>
+    <h1>Listado de IMC</h1>
+    <ul>
+        <div th:each="entry : ${imcs}">
+            <li>
+                <h4>
+                    <span th:text="${entry.peso}">peso</span>
+                </h4>
+            </li>
+
+            <li>
+                <h4>
+                    <span th:text="${entry}">peso</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span th:text="${entry.estatura}">Estatura</span>
+                </h4>
+            </li>
+
+            <li>
+                <h4>
+                    <span th:text="${entry.imc}">imc</span>
+                </h4>
+            </li>
+
+            <li>
+                <h4>
+                    <span th:text="${entry.fechaCalculo}">Fecha de Calculo</span>
+                </h4>
+            </li>
+        </div>
+    </ul>
+</div>
+<a href="/">Ir a casa</a>
+</body>
+</html>
