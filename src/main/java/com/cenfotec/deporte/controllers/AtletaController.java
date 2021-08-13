@@ -27,13 +27,13 @@ public class AtletaController {
         return "index";
     }
 
+    // Aqui guardo los IMC y los atletas
     @RequestMapping(value = "/insertar",  method = RequestMethod.GET)
     public String insertarPage(Model model) {
         model.addAttribute(new Atleta());
         return "insertar";
     }
 
-    // Aqui guado los IMC y los atletas
     @RequestMapping(value = "/insertar",  method = RequestMethod.POST)
     public String insertarAtleta(Atleta atleta, BindingResult result, Model model) {
         //guardo al atleta
@@ -41,21 +41,26 @@ public class AtletaController {
 
         // calculo del IMC
         IMC imc = new IMC();
-        imc.setEstatura(atleta.getEstatura());
         imc.setPeso(atleta.getPeso());
         imc.setFechaCalculo(new Date());
-        imc.setImc(imc.getPeso() / Math.pow(imc.getEstatura(), 2));
+        imc.setImc(((imc.getPeso() / (atleta.getEstatura()*atleta.getEstatura()))*10000));
         imc.setAtleta(atleta);
         imcService.save(imc);
 
         return "index";
     }
 
-    // aqui enlisto tos atletas, los detalles y los imcs
+    // aqui enlisto todos los atletas, los detalles y los imcs
     @RequestMapping(value = "/listar",  method = RequestMethod.GET)
     public String listar(Model model) {
         model.addAttribute("atletas", atletaService.getAll());
         return "listar";
+    }
+
+    @RequestMapping(value = "/listarIMC",  method = RequestMethod.GET)
+    public String listarIMC(Model model) {
+        model.addAttribute("imcs", imcService.getAll());
+        return "listarIMC";
     }
 
     @RequestMapping(value = "/verAtleta/{id}",  method = RequestMethod.GET)
@@ -70,8 +75,8 @@ public class AtletaController {
 
     @RequestMapping(value = "/verIMC/{id}",  method = RequestMethod.GET)
     public String verIMC(Model model, @PathVariable long id) {
-        List<IMC> temIMC =  imcService.getAll();
-        model.addAttribute("imcs", temIMC.stream().filter(data -> data.getAtleta().getId() != id));
+        List<IMC> imcTemp = imcService.findByAtleta(id);
+        model.addAttribute("imcs", imcTemp);
         return "verIMC";
     }
 
@@ -89,13 +94,13 @@ public class AtletaController {
     }
 
     //Aqui edito el un atleta trayendo los datos
-    @RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/editarAtleta/{id}", method = RequestMethod.GET)
     public String editar(Model model, @PathVariable long id) {
 
         Optional<Atleta> atleta = atletaService.get(id);
         if (atleta.isPresent()){
             model.addAttribute("atleta", atleta.get());
-            return "editar";
+            return "editarAtleta";
         }
         return "index";
     }
@@ -104,18 +109,22 @@ public class AtletaController {
     public String guardarCambios(Atleta atleta, BindingResult result, Model model, @PathVariable long id) {
         Optional<Atleta> a = atletaService.get(atleta.getId());
 
+        atleta.setNombre(a.get().getNombre());
+        atleta.setPrimerApellido(a.get().getPrimerApellido());
+        atleta.setSegundoApellido(a.get().getSegundoApellido());
+        atleta.setFechaDeNacimiento(a.get().getFechaDeNacimiento());
+        atleta.setDeporte(a.get().getDeporte());
+        atleta.setRama(a.get().getRama());
+        atleta.setEstatura(a.get().getEstatura());
+
         if (a.get().getPeso() != atleta.getPeso()) {
-            // calculo del IMC
-            IMC imc = new IMC();
-            imc.setEstatura(atleta.getEstatura());
-            imc.setPeso(atleta.getPeso());
-            imc.setFechaCalculo(new Date());
-            imc.setImc(imc.getPeso() / Math.pow(imc.getEstatura(), 2));
-            imc.setAtleta(atleta);
+            double imcTotal = ((atleta.getPeso() / (atleta.getEstatura() * atleta.getEstatura()))*10000);
+            IMC imc = new IMC(imcTotal, atleta.getPeso(), new Date(), atleta);
             imcService.save(imc);
         }
+
         atletaService.save(atleta);
 
-        return "atleta";
+        return "editarAtleta";
     }
 }

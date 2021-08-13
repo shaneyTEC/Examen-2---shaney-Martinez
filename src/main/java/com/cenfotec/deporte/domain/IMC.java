@@ -1,5 +1,7 @@
 package com.cenfotec.deporte.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,8 +13,8 @@ public class IMC {
     private long id;
 
     private double imc;
-    private double estatura;
     private double peso;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaCalculo;
 
     @ManyToOne
@@ -44,14 +46,6 @@ public class IMC {
 
     public void setImc(double imc) {
         this.imc = imc;
-    }
-
-    public double getEstatura() {
-        return estatura;
-    }
-
-    public void setEstatura(double estatura) {
-        this.estatura = estatura;
     }
 
     public double getPeso() {

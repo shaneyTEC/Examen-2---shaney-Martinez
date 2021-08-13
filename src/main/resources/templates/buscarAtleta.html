@@ -1,15 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en-US" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Buscar Atleta por aproximación sobre el nombre o apellido</title>
+    <title>Title</title>
 </head>
 <body>
-<form action="" th:action="@{/buscar}" th:object="${atleta}" method="post">
+<form action="" th:action="@{/buscarAtleta}" th:object="${atleta}" method="post">
     <label for="palabra">Atleta</label>
-    <input type="text"  th:field="*{nombre}" id="palabra" placeholder="Ingresar nombre o Apellido">
+    <input type="text"  th:field="*{nombre}" id="palabra" placeholder="Nombre o Apellido">
     <input type="submit" value="Buscar">
+    <br>
+    <a href="/"Ir a casa></a>
+    <br>
 </form>
-<a href="/">Ir a casa</a>
 </body>
 </html>

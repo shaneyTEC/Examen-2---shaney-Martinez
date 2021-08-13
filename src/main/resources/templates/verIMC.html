@@ -8,35 +8,21 @@
 <div>
     <h1>Listado de IMC</h1>
     <ul>
-        <div th:each="entry : ${imcs}">
-            <li>
-                <h4>
-                    <span th:text="${entry.peso}">peso</span>
-                </h4>
-            </li>
-
-            <li>
-                <h4>
-                    <span th:text="${entry}">peso</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${entry.estatura}">Estatura</span>
-                </h4>
-            </li>
-
-            <li>
-                <h4>
-                    <span th:text="${entry.imc}">imc</span>
-                </h4>
-            </li>
-
-            <li>
-                <h4>
-                    <span th:text="${entry.fechaCalculo}">Fecha de Calculo</span>
-                </h4>
-            </li>
+        <div th:object="${imcs}">
+            <p>Este es el historial de IMCs del atleta </p>
+            <table>
+                <tr>
+                    <th><b>Fecha de registro</b></th>
+                    <th><b>Peso</b></th>
+                    <th><b>total IMC</b></th>
+                    <th><b>Atleta</b></th>
+                </tr>
+                <tr th:each="entry : ${imcs}">
+                    <td th:text="${entry.fechaCalculo}"></td>
+                    <td th:text="${entry.peso}"></td>
+                    <td th:text="${entry.imc}"></td>
+                </tr>
+            </table>
         </div>
     </ul>
 </div>

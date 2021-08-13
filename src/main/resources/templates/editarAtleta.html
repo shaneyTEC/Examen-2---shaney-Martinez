@@ -7,53 +7,13 @@
     <title>Atletas</title>
 </head>
 <body>
-<h1>Editar un atleta:</h1>
-<form action="#" th:action="@{/editar/{id}(id= ${id})}" th:object="${atleta}" method="post">
-    <h4>
-        Editar informacion de atleta:
-    </h4>
+<h1>Los siguientes datos son los que se pueden editar de un atleta:</h1>
+<form action="#" th:action="@{/editarAtleta/{id}(id= ${id})}" th:object="${atleta}" method="post">
 
     <table>
         <tr>
-            <td><label for="name">Nombre</label></td>
-            <td><label readonly type="text" th:field="*{nombre}" id="name"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="primerApellido">Primer apellido</label></td>
-            <td><label readonly type="text" th:field="*{primerApellido}" id="primerApellido"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="segundoApellido">Segundo apellido</label></td>
-            <td><label readonly type="text" th:field="*{segundoApellido}" id="segundoApellido"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="fechaDeNacimiento">Fecha de Nacimiento</label></td>
-            <td><label readonly type="date" th:field="*{fechaDeNacimiento}" id="fechaDeNacimiento"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="deporte">Deporte</label></td>
-            <td><label readonly type="text" th:field="*{deporte}" id="deporte"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="estatura">Estatura (m)</label></td>
-            <td><label readonly type="text" th:field="*{estatura}" id="estatura"></label></td>
-        </tr>
-
-        <tr>
-            <td><label for="peso">Masa (kg)</label></td>
+            <td><label for="peso">Peso</label></td>
             <td><input type="text" th:field="*{peso}" id="peso"></td>
-        </tr>
-
-        <tr>
-            <td><label for="rama">Rama</label></td>
-            <td>
-                <label readonly type="text" th:field="*{rama}" id="rama"></label>
-            </td>
         </tr>
 
         <tr>
@@ -62,7 +22,7 @@
         </tr>
 
         <tr>
-            <td><label for="canton">Canton</label></td>
+            <td><label for="canton">Cantón</label></td>
             <td><input type="text" th:field="*{canton}" id="canton"></td>
         </tr>
 
@@ -80,9 +40,11 @@
             <td><label for="email">Email</label></td>
             <td><input type="text" th:field="*{email}" id="email"></td>
         </tr>
+
+        <input type="submit" value="Guardar cambios">
     </table>
     <br>
-    <a th:href="@{/atleta/{id}(id= *{id})}">Volver a atleta</a>
+    <a th:href="@{/atleta/{id}(id= *{id})}">Volver al detalle del atleta</a>
     <br>
 </form>
 

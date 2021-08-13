@@ -14,20 +14,57 @@ public class Atleta {
     private long id;
 
     //atributos
+    //persona
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaDeNacimiento;
+
+    // direccion
+    private String direccionExacta;
+    private String provincia;
+    private String canton;
+    private String distrito;
+
+    //contacto
     private String email;
-    private String deporte;
     private long telefono;
+
+    //atleta
+    private String deporte;
     private char rama;
+
+    //IMC
     private double estatura;
     private double peso;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "atleta")
     private Set<IMC> imcs;
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getCanton() {
+        return canton;
+    }
+
+    public void setCanton(String canton) {
+        this.canton = canton;
+    }
+
+    public String getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
 
     public long getId() {
         return id;
@@ -121,7 +158,14 @@ public class Atleta {
         return imcs;
     }
 
-   // public void setImcs(IMC imc) {
-      //  this.imcs.add(imc);
-    //}
+    public void setImcs(IMC imcs) {
+        this.imcs.add(imcs);
+    }
+    public String getDireccionExacta() {
+        return direccionExacta;
+    }
+
+    public void setDireccionExacta(String direccionExacta) {
+        this.direccionExacta = direccionExacta;
+    }
 }

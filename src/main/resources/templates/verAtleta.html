@@ -10,52 +10,34 @@
     <ul>
         <div th:object="${atleta}">
             <li>
-                <h4>
-                    <span th:text="${atleta.nombre}">Nombre</span>
-                </h4>
+                <h4>Persona</h4>
+                    <p>Nombre: <span th:text="${atleta.nombre}">Nombre</span></p>
+                    <p>Primer Apellido: <span th:text="${atleta.primerApellido}">apellido</span></p>
+                    <p>Segundo Apellido: <span th:text="${atleta.segundoApellido}">segundoApellido</span></p>
+                    <p>Fecha De Nacimiento: <span th:text="${atleta.fechaDeNacimiento}"></span></p>
             </li>
             <li>
-                <h4>
-                    <span th:text="${atleta.primerApellido}">Nombre</span>
-                </h4>
+                <h4>Contacto</h4>
+                    <p>Telefono: <span th:text="${atleta.telefono}"></span></p>
+                    <p>Email: <span th:text="${atleta.email}"></span></p>
             </li>
             <li>
-                <h4>
-                    <span th:text="${atleta.segundoApellido}">Nombre</span>
-                </h4>
+                <h4>Atleta</h4>
+                    <p>Deporte: <span th:text="${atleta.deporte}"></span></p>
+                    <p>Rama: <span th:text="${atleta.rama}"></span></p>
+                    <p>peso: <span th:text="${atleta.peso}"></span></p>
+                    <p>altura: <span th:text="${atleta.estatura}"></span></p>
             </li>
             <li>
-                <h4>
-                    <span th:text="${atleta.fechaDeNacimiento}">fecha De Nacimiento</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${atleta.email}">email</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${atleta.deporte}">deporte</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${atleta.telefono}">telefono</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${atleta.rama}">rama</span>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <span th:text="${atleta.imcs}">IMCS</span>
-                </h4>
-            </li>
+                <h4>Dirección</h4>
+                    <p>Dirección Exacta: <span th:text="${atleta.direccionExacta}"></span></p>
+                    <p>Provincia: <span th:text="${atleta.provincia}"></span></p>
+                    <p>Canton: <span th:text="${atleta.canton}"></span></p>
+                    <p>Distrito: <span th:text="${atleta.distrito}"></span></p>
 
-            <a th:href="@{/verIMC/{id}(id= ${atleta.id})}">Ver IMC del atleta</a>
+            </li>
+            <a th:href="@{/verIMC/{id}(id= ${atleta.id})}">Ver IMCs del atleta</a>
+            <a th:href="@{/editarAtleta/{id}(id= ${atleta.id})}">Editar Atleta</a>
         </div>
     </ul>
 </div>

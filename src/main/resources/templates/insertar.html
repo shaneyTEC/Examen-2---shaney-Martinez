@@ -31,28 +31,18 @@ Insertar un nuevo atleta:
         </tr>
 
         <tr>
-            <td><label for="estatura">Estatura (m)</label></td>
-            <td><input type="text" th:field="*{estatura}" id="estatura"></td>
-        </tr>
-
-        <tr>
-            <td><label for="peso">Peso (kg)</label></td>
-            <td><input type="text" th:field="*{peso}" id="peso"></td>
-        </tr>
-
-        <tr>
-            <td><label for="email">Email</label></td>
-            <td><input type="text" th:field="*{email}" id="email"></td>
-        </tr>
-
-        <tr>
             <td><label for="deporte">Deporte</label></td>
             <td><input type="text" th:field="*{deporte}" id="deporte"></td>
         </tr>
 
         <tr>
-            <td><label for="telefono">Telefono</label></td>
-            <td><input type="text" th:field="*{telefono}" id="telefono"></td>
+            <td><label for="estatura">Altura</label></td>
+            <td><input type="text" th:field="*{estatura}" id="estatura"></td>
+        </tr>
+
+        <tr>
+            <td><label for="peso">Peso</label></td>
+            <td><input type="text" th:field="*{peso}" id="peso"></td>
         </tr>
 
         <tr>
@@ -64,9 +54,39 @@ Insertar un nuevo atleta:
                 </select>
             </td>
         </tr>
+
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="text" th:field="*{email}" id="email"></td>
+        </tr>
+
+        <tr>
+            <td><label for="telefono">Telefono</label></td>
+            <td><input type="text" th:field="*{telefono}" id="telefono"></td>
+        </tr>
+        <tr>
+            <td><label for="provincia">Provincia</label></td>
+            <td><input type="text" th:field="*{provincia}" id="provincia"></td>
+        </tr>
+
+        <tr>
+            <td><label for="canton">Canton</label></td>
+            <td><input type="text" th:field="*{canton}" id="canton"></td>
+        </tr>
+
+        <tr>
+            <td><label for="distrito">Distrito</label></td>
+            <td><input type="text" th:field="*{distrito}" id="distrito"></td>
+        </tr>
+
+        <tr>
+            <td><label for="direccionExacta">dirección Exacta</label></td>
+            <td><input type="text" th:field="*{direccionExacta}" id="direccionExacta"></td>
+        </tr>
+
     </table>
 
-    <input type="submit" value="Add Atleta">
+    <input type="submit" value="Agregar Atleta">
 </form>
 
 <a href="/">Ir a casa</a>

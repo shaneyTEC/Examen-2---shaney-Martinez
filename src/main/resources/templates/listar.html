@@ -13,14 +13,7 @@
                 <h4>
                     <span th:text="${entry.nombre}">Nombre</span>
                 </h4>
-                <!--Cantidad de articulos:<span th:text="${entry.articulos.size()}">0</span>-->
-                <a th:href="@{/verAtleta/{id}(id= ${entry.id})}">Ver Detalle del atleta</a>
-                <span th:text="${entry.imcs.size()}">Nombre</span>
-                <div th:each="entry : ${entry.imcs}">
-
-                </div>
-
-                <p>${entry}</p>
+                <a th:href="@{/verAtleta/{id}(id= ${entry.id})}">Ver detalle</a>
             </li>
         </div>
     </ul>
